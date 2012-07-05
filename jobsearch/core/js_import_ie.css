@@ -1,0 +1,289 @@
+/* Imported jobsearch style sheet */
+
+/* basic tags */
+body
+{
+        font-size: 100%;
+        line-height:1.2;
+        background-color: #eeeeee;
+        color: #111111;
+        padding: 1em;
+        width: 40em;
+        float: left;
+}
+p       {
+                display: block;
+                position: relative;
+                width:37em;
+		margin: 1em 1em 0 0;
+                float: left;
+                clear: both;
+        }
+
+h1, h2, h3 
+        { 
+                display: block;
+                position: relative;
+                float: left;
+                margin: 1em 0 0 0;
+                clear: both;
+        }
+h1      {       font-size: 2em; }
+h2      {       font-size: 1.5em; }
+
+ul      
+        {
+                display: block;
+                position: relative;
+                float: left;
+                clear: both;
+                margin: 0 0 0 1em;
+                padding: 1em 1em 0 1em;
+        }
+li      
+        {
+                list-style: disc outside;
+                display: list-item;
+                position: relative;
+                width: 30em;
+                padding: 1em 1em 0 1em;
+                margin: 0 0 0 1em;
+                float: left;
+        }
+
+a:link, a:visited
+        {
+                color: black;
+                background-color: white;
+                text-decoration: none;
+        }
+a:hover
+        {
+                color: black;
+                background-color:yellow;
+        }
+a:active
+        {
+                color: red;
+                background-color:yellow;
+        }
+form
+        {
+                display: block;
+                position: relative;
+                float: left;
+                width: 35em;
+                clear: both;
+        }
+form li {       clear: both; }
+
+/* ids assigned to body tags (identify what the page is for) */
+
+/* home page */
+
+#jobsearch_home
+{
+
+}
+
+/* about page */
+
+#jobsearch_about
+{
+
+}
+
+/* joblist page: page named for field the list is sorted by */
+/* each row draws data from the table using the select method */
+/* of the jobs object for that row */
+
+#jobid
+{
+
+}
+
+/* job page: page named for what you can do with the data  */
+/* each page instantiates a jobs object and uses one of */
+/* the objects SQL methods to manipulate the jobs table */
+/* there are three job page id's: read_only, blank_form, and prefilled_form */
+/* read_only: select SQL method */
+/* blank form: empty form for entering new job; insert SQL method */
+/* prefilled form: prefilled with existing job for editing; update SQL method */
+
+#read_only, #blank_form, #prefilled_form
+        {
+                display: block;
+                position: relative;
+                float: left;
+        }
+
+/* menu classes: there are two menus: "do" and "go" */
+
+.go, .do
+        {
+                font-family:monospace;
+                font-size: 1.2em;
+                padding: .2em;
+                margin: 0 2em 0 0;
+        }
+.do li, .go li, form li
+        {
+                list-style-type: none;
+                padding: 0.2em;
+                width: 5em;
+                margin: 0 1em 0 0;
+        }
+
+/* the "do" menu is only displayed on a job page */
+.do     {       display: none; }
+#read_only .do, #blank_form .do, #prefilled_form .do
+        {
+                display: block;
+        }
+
+/* the "do" menu has a class for each action: .add, .modify, .view */
+/* this allows me to set the border properties for each action based  */
+/* on the page id, to identify the current action */
+
+.add, .modify, .view 
+        {
+                border-bottom: thin solid black;
+                border-right: thin dotted black;
+        }
+#read_only .view, #blank_form .add, #prefilled_form .modify
+        {
+                border-bottom: thick solid green;
+                border-right: thick double green;
+        }
+/* the "go" menu has a class for each locaton: .index, .about, .joblist */
+/* this lets me set the border properties for each page based  */
+/* on the page id, to identify the current location */
+.index, .about, .joblist
+        {
+                border-bottom: thin solid black;
+                border-right: thin dotted black;
+        }
+#jobsearch_home .index, #jobsearch_about .about,
+#jobid .joblist
+        {
+                border-bottom: thick solid green;
+                border-right: thick double green;
+        }
+
+/* job page styling */
+
+#read_only ul, #blank_form ul, #prefilled_form ul
+        {
+                list-style-type: none;
+                border:none;
+        }
+/* everything on this page refers to one jobid */
+/* every item has a fieldname class, a fieldvalue class */
+/* and a form input. This allows me to show or style */
+/* each item differently, depending on the page id */
+.fieldname
+        {
+                display: block;
+                position: relative;
+                float: left;
+                clear: left;
+                width: 8em;
+        }
+#read_only .fieldvalue
+        {
+                display: block;
+                position: relative;
+                float: left;
+                width: 20em;
+        }
+#blank_form input, #blank_form textarea,
+#prefilled_form input, #prefilled_form textarea
+        {
+                display: block;
+                position: relative;
+                float: left;
+                clear: right;
+        }
+
+/* there are different submit buttons based on the page id */
+.update_button, .insert_button
+        {
+                display: none;
+        }
+#blank_form .insert_button, #prefilled_form .update_button
+        {
+                display: block;
+                position: relative;
+                float: left;
+                margin: 0 0 0 2em;
+                clear: both;
+        }
+/* the read_only page: do not display form items */
+#read_only input, #read_only textarea
+        {
+                display:none;
+        }
+
+/* the blank_form and prefilled form pages display any existing */
+/* field values in the input items - hide the fieldvalue class */
+/* so we don't display the values twice */
+#blank_form .fieldvalue, #prefilled_form .fieldvalue
+        {
+                display:none;
+        }
+
+/* job list page styling */
+/* every row displays information for a single job */
+/* every row has a class of "job_row" and an id of */
+/* primary key for that row of the jobs table */
+/* every data item is contained within a "job_row" and */
+/* has a class named for it's fieldname */
+/* the column headings use the same fieldname classes */
+/* but use the "colhead" class as the enclosing box */
+/* instead of "job_row" */
+
+.colhead, .job_row, .jobtitle, .orgid, .start, .end, .responsibilities
+        {
+                display: block;
+                position: relative;
+                float:left;
+        }
+.job_row
+        {
+                width: 35em;
+                border-top: thin dotted black;
+                padding: 0.5em 0 0.5em 0;
+                margin: 0;
+                clear: both;
+        }
+.colhead
+        {
+                width: 40em;
+                font-weight: bold;
+                clear:both;
+        }
+
+.jobtitle
+        {
+                clear:left;
+                width: 8em;
+                margin-right: 1em;
+        }
+
+.orgid
+        {       
+                width: 8em;
+                margin-right: 1em;     
+        }
+
+.start, .end
+        {
+                width:6em;
+                margin-right: 1em;
+        }
+.responsibilities
+        {
+                margin-left: 9em;
+                width: 27em;
+                clear:both;
+        }

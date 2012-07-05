@@ -1,0 +1,1823 @@
+<html><head><!-- Myrmidon: turns any Mac file into a Web page with a single click --><!-- Myrmidon info: http://www.terrymorse.com/ --><title>Developer Essentials: ISSUE 3</title><!-- BEGIN MT-METAS INCLUDE --><!-- Template Revised: 06 Dec 2004 -->
+
+
+
+
+
+
+
+
+
+
+<meta name="Author-Template" content="MacTech Magazine">
+<meta name="Author-Corporate" content="Xplain Corporation">
+<meta name="Publisher" content="Xplain Corporation">
+<meta name="Keywords" content="MacTech Magazine, Macintosh, Mac, Apple Computer, Welcome, www.mactech.com, MacTech home page, NetProfessional, MacDev-1, programmer, developer, web, netadmin, network administrator">
+<meta name="Description" content="www.mactech.com is the global entry point for technology information for the Apple Macintosh. Find links to all Apple Macintosh technology content here.">
+<meta name="Identifier-URL" content="http://www.mactech.com/">
+<meta name="Content-Language" content="en-US">
+<meta name="Coverage" content="Worldwide">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="expires" mactechcontent="0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=win 1252"><!-- 
+<meta http-equiv="refresh" content="600">
+ -->
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.mactech.com/news/mactech.rss">
+<link rel="Help" href="http://www.mactech.com/misc/about_mt.html">
+<link rel="Index" href="http://www.mactech.com/">
+<link rel="SHORTCUT ICON" href="http://www.mactech.com/favicon.ico">
+
+<script src="apple_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-76315-1";
+urchinTracker();
+</script>
+<script language="javascript" src="apple_files/awstats_misc_tracker.js"></script>
+
+<style id="dynCom" type="text/css"><!-- --></style>
+<script language="JavaScript"><!--
+function msoCommentShow(anchor_id, com_id)
+{
+	if(msoBrowserCheck()) 
+		{
+		c = document.all(com_id);
+		if (null != c)
+			{
+			a = document.all(anchor_id);
+			var cw = c.offsetWidth;
+			var ch = c.offsetHeight;
+			var aw = a.offsetWidth;
+			var ah = a.offsetHeight;
+			var x  = a.offsetLeft;
+			var y  = a.offsetTop;
+			var el = a;
+			while (el.tagName != "BODY") 
+				{
+				el = el.offsetParent;
+				x = x + el.offsetLeft;
+				y = y + el.offsetTop;
+				}
+			var bw = document.body.clientWidth;
+			var bh = document.body.clientHeight;
+			var bsl = document.body.scrollLeft;
+			var bst = document.body.scrollTop;
+			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+				{ c.style.left = x + aw - ah / 2 - cw; }
+			else 
+				{ c.style.left = x + ah / 2; }
+			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+				{ c.style.top = y + ah / 2 - ch; }
+			else 
+				{ c.style.top = y + ah / 2; }
+			c.style.visibility = "visible";
+}	}	}
+function msoCommentHide(com_id) 
+{
+	if(msoBrowserCheck())
+		{
+		c = document.all(com_id);
+		if (null != c)
+		{
+		c.style.visibility = "hidden";
+		c.style.left = -1000;
+		c.style.top = -1000;
+		} } 
+}
+function msoBrowserCheck()
+{
+	ms = navigator.appVersion.indexOf("MSIE");
+	vers = navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 = (ms > 0) && (parseInt(vers) >= 4);
+	return ie4;
+}
+if (msoBrowserCheck())
+{
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
+	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid threedshadow"");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt");
+}
+// --></script>
+
+<style type="text/css">
+  <!--
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: small; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Geneva, sans-serif
+}
+A {
+	COLOR: #003399; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #0066ff; TEXT-DECORATION: underline
+}
+P.sitefamily
+{
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-TOP: 0px; 
+	MARGIN: 0px; 
+	COLOR: #999999; 
+	TEXT-DECORATION: none;
+	FONT-SIZE: 8pt; 
+	FONT-FAMILY: Arial, Verdana, SANS-SERIF
+}
+A.sitefamily
+{
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-TOP: 0px; 
+	MARGIN: 0px; 
+	COLOR: #999999; 
+	TEXT-DECORATION: none;
+	FONT-SIZE: 8pt; 
+	FONT-FAMILY: Arial, Verdana, SANS-SERIF
+}
+A.sitefamily:hover
+{
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-TOP: 0px; 
+	MARGIN: 0px; 
+	COLOR: #999999; 
+	TEXT-DECORATION: underline;
+	FONT-SIZE: 8pt; 
+	FONT-FAMILY: Arial, Verdana, SANS-SERIF
+}
+#pwrby {
+	MARGIN-TOP: 0px; FLOAT: right; MARGIN-BOTTOM: 0.6em; MARGIN-RIGHT: 0.6em
+}
+#section {
+	CLEAR: both; FONT-WEIGHT: bold; FONT-SIZE: small; MARGIN-BOTTOM: 0.6em; FONT-FAMILY: Arial, Geneva, sans-serif
+}
+.underline {
+	MARGIN-BOTTOM: 0.3em; PADDING-BOTTOM: 0.2em; BORDER-BOTTOM: #666 1px solid
+}
+.largea {
+	FONT-WEIGHT: bold; COLOR: #666
+}
+#content {
+	BORDER-RIGHT: #666 1px solid; PADDING-RIGHT: 0.8em; PADDING-LEFT: 0.8em; FONT-SIZE: small; BORDER-LEFT: #666 1px solid
+}
+#content TD {
+	FONT-SIZE: small
+}
+.tab {
+	BORDER-RIGHT: #eeeeee 1px solid; PADDING-RIGHT: 0.4em; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 0.4em; FONT-WEIGHT: bold; FONT-SIZE: small; PADDING-BOTTOM: 0.1em; BORDER-LEFT: #bbbbbb 1px solid; PADDING-TOP: 0px; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #dddddd
+}
+#ad1 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #000; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+
+       A                    { text-decoration: none; font-weight: bold; background: transparent; font-family: Verdana, Arial, SANS-SERIF;}
+       A:active             { color: #0033FF; background: transparent; }
+       A:visited            { color: #0033FF; background: transparent; }
+       A:offsite            { color: #0033FF; background: transparent; }
+       A:link               { color: #0033FF; background: transparent; }
+       A:hover              { color: #FF0000; background: transparent; }
+       A:visited:hover      { color: #FF0000; background: transparent; }
+       
+       A.navlink               { color: #0033FF; text-decoration:none; font-size: 8pt; background: transparent; font-weight: bold; font-family: Verdana, Arial, SANS-SERIF;}
+       A.navlink:active        { color: #0033FF; background: transparent; }
+       A.navlink:visited       { color: #0033FF; background: transparent; }
+       A.navlink:offsite       { color: #0033FF; background: transparent; }
+       A.navlink:link          { color: #0033FF; background: transparent; }
+       A.navlink:hover         { color: #FF0000; background: transparent; }
+       A.navlink:visited:hover { color: #FF0000; background: transparent; }
+       
+       A.footerhidden               { color: #B3B3B3; text-decoration:none; font-size: 4pt; background: transparent; }
+       A.footerhidden:active        { color: #B3B3B3; background: transparent; }
+       A.footerhidden:visited       { color: #B3B3B3; background: transparent; }
+       A.footerhidden:offsite       { color: #B3B3B3; background: transparent; }
+       A.footerhidden:link          { color: #B3B3B3; background: transparent; font-weight: normal; }
+       A.footerhidden:hover         { color: #B3B3B3; background: transparent; }
+       A.footerhidden:visited:hover { color: #B3B3B3; background: transparent; }
+       
+       
+       
+       TABLE           { text-decoration: none; font-weight: normal; font-family: Verdana, Arial, SANS-SERIF; font-size: 10pt;}
+       TD  	           { text-decoration: none; font-weight: normal; font-family: Verdana, Arial, SANS-SERIF; font-size: 10pt;}
+              
+       
+       TABLE.NavBarBackground           { background: #FFFFFF; }
+       TD.NavBarBackground   	        { background: #FFFFFF; }
+       TD.NavBarText	   	        	{ background: #FFFFFF; font-size: 7pt;}
+       
+       TABLE.NewsSection           		{ background: #FFFFFF; }
+       TD.NewsSectionItem	   	        { background: #FFFFFF; font-size: 10pt;}
+       A.NewsSectionItem           		{ text-decoration: none; font-weight: bold; background: transparent; font-family: Verdana, Arial, SANS-SERIF;}
+       A.NewsSectionItem:active            { color: #0033FF; background: transparent; }
+       A.NewsSectionItem:visited           { color: #0033FF; background: transparent; }
+       A.NewsSectionItem:offsite           { color: #0033FF; background: transparent; }
+       A.NewsSectionItem:link              { color: #0033FF; background: transparent; }
+       A.NewsSectionItem:hover             { color: #FF0000; background: transparent; }
+       A.NewsSectionItem:visited:hover     { color: #FF0000; background: transparent; }
+
+       TABLE.BreakNewsSection           		{ background: #EEEEEE; }
+       TD.BreakNewsSectionItem	   	    		{ font-size: 9pt;}
+       A.BreakNewsSectionItem           		{ text-decoration: none; font-weight: bold; background: transparent; font-family: Verdana, Arial, SANS-SERIF;}
+       A.BreakNewsSectionItem:active            { color: #0033FF; background: transparent; }
+       A.BreakNewsSectionItem:visited           { color: #0033FF; background: transparent; }
+       A.BreakNewsSectionItem:offsite           { color: #0033FF; background: transparent; }
+       A.BreakNewsSectionItem:link              { color: #0033FF; background: transparent; }
+       A.BreakNewsSectionItem:hover             { color: #FF0000; background: transparent; }
+       A.BreakNewsSectionItem:visited:hover     { color: #FF0000; background: transparent; }
+
+       A.BodyTextAd           			{ text-decoration: none; font-size: 9pt; font-weight: normal; background: transparent; font-family: Verdana, Arial, SANS-SERIF;}
+       A.BodyTextAd:active            	{ color: #000000; background: transparent; }
+       A.BodyTextAd:visited           	{ color: #000000; background: transparent; }
+       A.BodyTextAd:offsite           	{ color: #000000; background: transparent; }
+       A.BodyTextAd:link              	{ color: #000000; background: transparent; }
+       A.BodyTextAd:hover             	{ color: #FF0000; background: transparent; }
+       A.BodyTextAd:visited:hover     	{ color: #FF0000; background: transparent; }
+
+       A.RightBarTextAd           			{ text-decoration: none; font-size: 9pt; font-weight: normal; background: transparent; font-family: Georgia, "Times New Roman", Times, serif;}
+       A.RightBarTextAd:active            	{ color: #000000; background: transparent; }
+       A.RightBarTextAd:visited           	{ color: #000000; background: transparent; }
+       A.RightBarTextAd:offsite           	{ color: #000000; background: transparent; }
+       A.RightBarTextAd:link              	{ color: #000000; background: transparent; }
+       A.RightBarTextAd:hover             	{ color: #FF0000; background: transparent; }
+       A.RightBarTextAd:visited:hover     	{ color: #FF0000; background: transparent; }
+
+		TABLE.WelcomeText {
+			font-size: 10pt;
+			margin: 0px;
+			padding: 0px;
+			text-align: left;
+			font-family: Verdana, Arial, Geneva, SANS-SERIF; }
+		TD.WelcomeText {
+			font-size: 10pt;
+			margin: 0px;
+			padding: 0px;
+			text-align: left;
+			font-family: Verdana, Arial, Geneva, SANS-SERIF;  }
+		TD.MacTechTOC {
+			font-size: 9pt;
+			margin: 0px;
+			padding: 0px;
+			font-weight: bold; 
+			text-align: left;
+			font-family: Georgia, "Times New Roman", Times, serif;	}
+		LI.MacTechTOC {
+			font-size: 11pt;
+			margin: 0px;
+			padding: 0px;
+			font-weight: normal; 
+			text-align: left;
+			font-family: Georgia, "Times New Roman", Times, serif;	}
+			
+		A.WelcomeText {
+			font-size: 10pt;
+			margin: 0px;
+			padding: 0px;
+			text-align: left;
+			font-family: Verdana, Arial, Geneva, SANS-SERIF; 	}
+		P.Tagline {
+			font-size: 8pt;
+			margin: 0px;
+			padding: 0px;
+			text-align: right;
+			font-style: italic;
+			font-family: Georgia, "Times New Roman", Times, serif;	}
+		P.AnnounceTitle		{
+			font-size: 20pt;
+			margin: 0px;
+			padding: 0px;
+			color: #993399;
+			text-align: center;
+			font-style: oblique;
+			font-family: Verdana, Arial, SANS-SERIF;
+			line-height: 20pt;
+			font-variant: normal;
+			font-weight: bolder;
+			}
+		P.AnnounceText		{
+			font-size: 10pt;
+			margin: 0px;
+			padding: 0px;
+			color: #000000;
+			text-align: left;
+			font-style: normal;
+			font-family: Verdana, Arial, SANS-SERIF;
+			line-height: normal;
+			font-variant: normal;
+			font-weight: normal;
+			}
+       
+       H1 { font-family: Verdana, Arial, Geneva, SANS-SERIF; }
+       H2 { font-family: Verdana, Arial, Geneva, SANS-SERIF; }
+       H3 { font-family: Verdana, Arial, Geneva, SANS-SERIF; }
+       H4 { font-family: Verdana, Arial, Geneva, SANS-SERIF; TEXT-DECORATION: underline; }
+       H5 { font-family: Verdana, Arial, Geneva, SANS-SERIF; }
+       H6 { font-family: Verdana, Arial, Geneva, SANS-SERIF; }
+       
+       LI { font-family: Verdana, Arial, Geneva, SANS-SERIF; 
+       		font-weight: normal; 
+        	font-size: 10pt;
+      	  }
+
+       BODY    {
+        			font-family: Verdana, Arial, Geneva, SANS-SERIF; 
+		       		font-size: 10pt;
+                    margin-top:    10 ;
+                    margin-left:   10 ;
+                    margin-right:  0 ;
+                    margin-bottom: 10 ;
+                    background-image: url(http://www.mactech.com/images/background.jpg);
+                    background-color: #FFFFFF;
+                }       
+
+       P    {
+        			font-family: Verdana, Arial, Geneva, SANS-SERIF; 
+		       		font-size: 10pt;
+                    margin-top:    0 ;
+                    margin-left:   0 ;
+                    margin-right:  0 ;
+                    margin-bottom: 10 ;
+                }       
+
+       P.rightnav    {
+        			font-family: Verdana, Arial, Geneva, SANS-SERIF; 
+		       		font-size: 8pt;
+		       		font-weight: normal;
+                    margin-top:    0 ;
+                    margin-left:   0 ;
+                    margin-right:  0 ;
+                    margin-bottom: 0 ;
+                }       
+
+
+	   P.nextissue           			{ font-family: Verdana, Arial, Geneva, SANS-SERIF; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+       A.nextissue:active            	{ font-family: Verdana, Arial, Geneva, SANS-SERIF; color: #FFFFFF; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+       A.nextissue:visited           	{ font-family: Verdana, Arial, Geneva, SANS-SERIF; color: #FFFFFF; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+       A.nextissue:offsite           	{ font-family: Verdana, Arial, Geneva, SANS-SERIF; color: #FFFFFF; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+       A.nextissue:link              	{ font-family: Verdana, Arial, Geneva, SANS-SERIF; color: #FFFFFF; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+       A.nextissue:hover             	{ font-family: Verdana, Arial, Geneva, SANS-SERIF; color: #FFFFFF; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+       A.nextissue:visited:hover     	{ font-family: Verdana, Arial, Geneva, SANS-SERIF; color: #FF0000; font-size: 9pt; font-weight: normal; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }
+
+
+       P.didyouknow    {
+        			font-family: Verdana, Arial, Geneva, SANS-SERIF; 
+		       		font-size: 9pt;
+		       		font-weight: normal;
+                    margin-top:    0 ;
+                    margin-left:   0 ;
+                    margin-right:  0 ;
+                    margin-bottom: 0 ;
+                }       
+
+
+       P.mainsectionheader    {
+        			color: #CC0000;
+        			text-decoration: underline;
+        			font-family: Helvetica, SANS-SERIF; 
+		       		font-size: 14pt;
+		       		font-weight: bold;
+                    margin-top:    0 ;
+                    margin-left:   0 ;
+                    margin-right:  0 ;
+                    margin-bottom: 0 ;
+                }       
+
+       P.mainsectionheaderWhite    {
+        			color: #FFFFFF;
+        			text-decoration: none;
+        			font-family: Helvetica, SANS-SERIF; 
+		       		font-size: 14pt;
+		       		font-weight: bold;
+                    margin-top:    0 ;
+                    margin-left:   0 ;
+                    margin-right:  0 ;
+                    margin-bottom: 0 ;
+                }       
+
+       P.footerhidden    {
+        			color: #B3B3B3;
+        			text-decoration: none;
+        			font-family: Helvetica, SANS-SERIF; 
+		       		font-size: 4pt;
+		       		font-weight: normal;
+                    margin-top:    0 ;
+                    margin-left:   0 ;
+                    margin-right:  0 ;
+                    margin-bottom: 0 ;
+                }       
+                
+	   a.cableproductnames:active			{color: #000000; text-decoration: none; font-family: Helvetica, SANS-SERIF; font-size: 9pt; font-weight: bold; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }       
+	   a.cableproductnames:visited			{color: #000000; text-decoration: none; font-family: Helvetica, SANS-SERIF; font-size: 9pt; font-weight: bold; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }       
+	   a.cableproductnames:offsite			{color: #000000; text-decoration: none; font-family: Helvetica, SANS-SERIF; font-size: 9pt; font-weight: bold; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }       
+	   a.cableproductnames:link				{color: #000000; text-decoration: none; font-family: Helvetica, SANS-SERIF; font-size: 9pt; font-weight: bold; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }       
+	   a.cableproductnames:hover			{color: #CC0000; text-decoration: none; font-family: Helvetica, SANS-SERIF; font-size: 9pt; font-weight: bold; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }       
+	   a.cableproductnames:visited:hover	{color: #CC0000; text-decoration: none; font-family: Helvetica, SANS-SERIF; font-size: 9pt; font-weight: bold; margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; }       
+
+a.trialsub,
+.trialsub { /* Trial Subscription Title */
+	font-family: Verdana, Arial, SANS-SERIF;
+	font-size: 12px;
+	font-weight: bold;
+	color: #C00;
+	text-decoration: none;
+	text-align: center;
+	}
+
+a.trialsubdesc,
+.trialsubdesc { /* Trial Subscription Description */
+	font-family: Verdana, Arial, SANS-SERIF;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	}
+
+a.previous, a.next {
+	text-transform: uppercase;
+	padding: 2px 4px 2px 5px;
+	border: 1px solid #004276;
+	font-size: 76%;
+	text-decoration: none;
+	font-weight: bold;
+	font-family:"Times New Roman";
+	}
+
+table.CommunityNewsBox, td.CommunityNewsBox {
+	border-width: thin;
+	border-style: solid;
+	background: #FFFFFF; 
+	margin: 0px;
+	padding: 0px;
+}
+
+img-roundtops {
+	border: 0;
+	}
+
+ /* VBA to AppleScript Guide Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:13.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-13.0pt;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:9.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+span.MsoCommentReference
+	{font-size:10.0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	color:black;}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+table.MsoNormalTable
+	{font-size:10.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.Articlebyline, li.Articlebyline, div.Articlebyline
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:14.0pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	font-style:italic;}
+p.BodySubheadMajor, li.BodySubheadMajor, div.BodySubheadMajor
+	{margin-top:30.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	font-variant:all-caps;
+	font-weight:bold;}
+p.BodyCopyNormal, li.BodyCopyNormal, div.BodyCopyNormal
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:17.85pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.ArticleSectionName, li.ArticleSectionName, div.ArticleSectionName
+	{margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:14.0pt;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.ArticleTitle, li.ArticleTitle, div.ArticleTitle
+	{margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:20.0pt;
+	font-size:18.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	letter-spacing:-.25pt;}
+p.ArticleSubhead, li.ArticleSubhead, div.ArticleSubhead
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	font-style:italic;}
+p.PictureCaptions, li.PictureCaptions, div.PictureCaptions
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:12.0pt;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	font-style:italic;}
+p.BodyCopyNoIndent, li.BodyCopyNoIndent, div.BodyCopyNoIndent
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.BodyCopyHangingIndent, li.BodyCopyHangingIndent, div.BodyCopyHangingIndent
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:13.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-13.45pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.PictureSpace, li.PictureSpace, div.PictureSpace
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.CodeNormal, li.CodeNormal, div.CodeNormal
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	font-size:9.0pt;
+	font-family:Courier;}
+p.BodySubheadMinor, li.BodySubheadMinor, div.BodySubheadMinor
+	{margin-top:30.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	font-weight:bold;}
+p.CodeComments, li.CodeComments, div.CodeComments
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.ArticleAboutAuthor, li.ArticleAboutAuthor, div.ArticleAboutAuthor
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	border:none;
+	padding:0in;
+	font-size:12.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.CodeFunctionName, li.CodeFunctionName, div.CodeFunctionName
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+p.CodeVBA, li.CodeVBA, div.CodeVBA
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	font-size:9.0pt;
+	font-family:Monaco;}
+p.CodeAppleScriptCompiled, li.CodeAppleScriptCompiled, div.CodeAppleScriptCompiled
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:15.1pt;
+	margin-bottom:.0001pt;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	font-size:10.0pt;
+	font-family:Verdana;
+	color:blue;}
+p.CodeAppleScriptUncompiled, li.CodeAppleScriptUncompiled, div.CodeAppleScriptUncompiled
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:15.1pt;
+	margin-bottom:.0001pt;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	font-size:10.0pt;
+	font-family:Courier;
+	color:purple;}
+p.CodeAppleScriptComments, li.CodeAppleScriptComments, div.CodeAppleScriptComments
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:0in;
+	margin-left:15.1pt;
+	margin-bottom:.0001pt;
+	tab-stops:15.1pt 30.25pt 45.35pt 60.5pt 1.05in 90.7pt 105.85pt 120.95pt 136.1pt 2.1in 166.3pt 181.45pt 196.55pt 211.7pt 3.15in 241.9pt 257.05pt 272.15pt 287.3pt 4.2in 418.5pt;
+	font-size:10.0pt;
+	font-family:Verdana-Italic;
+	color:#4C4E4E;
+	font-style:italic;}
+	
+h3.vbaguide
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:13.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+h4.vbaguide
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:13.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+h5.vbaguide
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:Arial, Geneva, sans-serif;
+	font-style:italic;}
+h6.vbaguide
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:Arial, Geneva, sans-serif;}
+
+a.vbaguide:link, span.MsoHyperlink
+	{color:blue;
+	font-size:10.0pt;
+	text-decoration:none;
+	text-underline:none;}
+a.vbaguide:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	font-size:10.0pt;
+	text-decoration:none;
+	text-underline:none;}
+
+
+/* pageLinks */
+a.previous, a.next {
+	text-transform: uppercase;
+	padding: 2px 4px 2px 5px;
+	border: 1px solid #004276;
+	font-size: 76%;
+	text-decoration: none;
+	font-weight: bold;
+	font-family:"Times New Roman";
+	}
+
+
+   -->
+   </style><!-- END MT-METAS INCLUDE -->
+   
+   
+
+
+<meta name="GENERATOR" content="Terry Morse Myrmidon 1.2"></head><body onunload="popup()" bgcolor="#ffffff">
+
+
+<!-- BEGIN MT_HEADER INCLUDE -->
+
+
+
+
+
+<!-- <BODY BGCOLOR="#FFFFFF" background="http://www.mactech.com/images/background.jpg"> -->
+
+<!-- Begin Network Strip Nav Bar -->
+
+<table style="border-top: 2px solid rgb(102, 102, 102); border-bottom: 1px solid rgb(34, 34, 34);" bgcolor="#444444" border="0" cellpadding="2" cellspacing="0" width="100%">
+	<tbody>
+		<tr>
+			<td style="border-bottom: 1px solid rgb(51, 51, 51);" nowrap="nowrap" valign="center">
+				<p class="sitefamily">
+				&nbsp;
+				<a class="sitefamily" href="http://www.mactech.com/"><font color="#cccccc">MacTech Network:</font></a>
+				&nbsp;
+				<a class="sitefamily" href="http://www.macforge.net/"><font color="#cccccc">MacForge.net</font></a>
+				&nbsp;|&nbsp;
+				<a class="sitefamily" target="_blank" href="http://www.betterram.com/"><font color="#cccccc">Computer Memory</font></a>
+				&nbsp;|&nbsp;
+				<a class="sitefamily" target="_blank" href="http://www.mactechdomains.com/"><font color="#cccccc">Register Domains</font></a>
+				&nbsp;|&nbsp;
+				<a class="sitefamily" href="http://www.mactechsupplies.com/store.php?nfid=34"><font color="#cccccc">Printer Supplies</font></a>
+				&nbsp;|&nbsp;
+				<a class="sitefamily" href="http://www.mactech.com/cables/"><font color="#cccccc">Cables</font></a>
+				&nbsp;|&nbsp;
+
+<a class="sitefamily" target="_blank" href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;camp=1789&amp;tag=mactechmagazi-20&amp;creative=9325&amp;path=external-search%3Fsearch-type=ss%26keyword=ipod%26index=pc-hardware"><font color="#cccccc">iPod Deals</font></a>
+				&nbsp;|&nbsp;
+<a class="sitefamily" target="_blank" href="http://www.mactech.com/macstore/"><font color="#cccccc">Mac Deals</font></a>
+				&nbsp;|&nbsp;
+<a class="sitefamily" target="_blank" href="http://www.macbookshelf.com/"><font color="#cccccc">Mac Book Shelf</font></a>
+				
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- end Network Strip Nav Bar -->
+
+<br>
+
+<!-- BEGIN MT_HEADER_KERNEL INCLUDE -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td align="left" valign="middle" width="110"><a href="http://www.mactech.com/">
+			
+			</a><table>
+				<tbody><tr>
+<!--
+					[[!~~ Begin Red, White & Blue Ribbon ~~]]
+					[[TD VALIGN="MIDDLE"]]
+						[[IMG SRC="http://www.mactech.com/mt_images/us-ribbon.jpg" ALT="" WIDTH="39" HEIGHT="68" BORDER="0" ALIGN="middle"]]
+					[[/TD]]
+					[[!~~ End Red, White & Blue Ribbon ~~]]
+-->
+
+					<td width="5">
+						&nbsp;
+					</td>
+					<td valign="middle">
+						<a href="http://www.mactech.com/" border="0">
+						<img src="apple_files/mt_logo_209x043.gif" alt="MacTech Magazine" border="0"></a>
+						<p class="Tagline">
+							The journal of Macintosh technology
+						</p>
+						
+					</td>
+					<td width="5">
+						&nbsp;
+					</td>
+				</tr>
+			</tbody></table>
+
+		</td>
+
+
+		<td valign="bottom" width="25">
+			&nbsp;
+		</td>
+		<td align="center">
+			<table border="0">
+				<tbody><tr align="center">
+					<td align="center" valign="bottom">
+						
+						<!--BEGIN: Uncomment this code (using BBEdit's util) when you remove the above-->
+
+								<center>
+								
+																<!--/* Openads Local Mode Tag v2.4.2 */-->
+								
+								<a href="http://www.mactech.com/openads/www/delivery/ck.php?oaparams=2__bannerid=55__zoneid=0__cb=b35c08b836__maxdest=http://www.macspeech.com/index.php?ref=10343" target="_blank" onmouseover="self.status='MacSpeech Dictate'; return true;" onmouseout="self.status=''; return true;"><img src="apple_files/ai.jpeg" alt="MacSpeech Dictate" title="MacSpeech Dictate" border="0" height="90" width="728"></a><div id="beacon_55" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="apple_files/lg.gif" alt="" style="width: 0px; height: 0px;" height="0" width="0"></div>								
+								</center>	
+
+						<!--END: Uncomment this code (using BBEdit's util) when you remove the above-->
+					</td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+	
+</tbody></table>
+
+
+<!-- END MT_HEADER_KERNEL INCLUDE -->
+<script language="JavaScript">
+</script>
+
+<br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+<!--BEGIN ROUND TOPS-->
+<tbody><tr>
+	<td width="175">
+	
+		<table border="0" cellpadding="0" cellspacing="0" height="5" width="100%">
+			<tbody><tr>
+				<td align="left" width="5"><img class="img-roundtops" src="apple_files/Corner-UL.gif" height="5" width="5"></td>
+				<td bgcolor="#ffffff" width="100%"></td>
+				<td align="right" width="5"><img class="img-roundtops" src="apple_files/Corner-UR.gif" height="5" width="5"></td>
+			</tr>
+		</tbody></table>
+	
+	</td>
+	
+	<td width="12">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td align="left" height="5" width="10">
+				</td>
+			</tr>
+		</tbody></table>
+	
+	</td>
+	
+	<td>
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0" height="5" width="100%">
+			<tbody><tr>
+				<td align="left" width="5"><img class="img-roundtops" src="apple_files/Corner-UL.gif" height="5" width="5"></td>
+				<td align="right" bgcolor="#ffffff" width="100%"></td>
+				<td align="right" width="5"><img class="img-roundtops" src="apple_files/Corner-UR.gif" height="5" width="5"></td>
+			</tr>
+		</tbody></table>
+	
+	</td>
+
+	<td width="12">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td align="left" height="5" width="10">
+				</td>
+			</tr>
+		</tbody></table>
+	
+	</td>
+
+	<td width="175">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="left" width="5"><img class="img-roundtops" src="apple_files/Corner-UL.gif" height="5" width="5"></td>
+				<td align="right" bgcolor="#ffffff" width="100%"></td>
+				<td align="right" width="5"><img class="img-roundtops" src="apple_files/Corner-UR.gif" height="5" width="5"></td>
+			</tr>
+		</tbody></table>
+	
+	</td>
+
+</tr>
+<!--END ROUND TOPS-->
+
+<tr valign="top">
+	<td bgcolor="#ffffff" valign="top" width="98">
+	
+	
+	<!-- Begin NavBar -->
+	
+	<!-- BEGIN MT_NAVBAR INCLUDE -->
+
+<table align="right" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="98">
+	<tbody><tr valign="top">
+		<td colspan="4" align="center">
+			<font size="1"><strong>Magazine In Print</strong></font>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/misc/about_mt.html">About MacTech</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/">Home Page</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/business/subscribe.html">Subscribe</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/dvd/">Archives DVD</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/press_releases/">Submit News</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/tips/">Submit a Tip!</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://store.mactech.com/mactech/riskfree/offer.html?FROM=MTRF">Get a copy of MacTech RISK FREE</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+	
+	<tr valign="CENTER">
+		<td colspan="4">
+		
+		<!-- SiteSearch Google : entire web, mactech.com and Mac community -->
+		<form method="get" action="http://www.mactech.com/search/search_redirect.php">
+			<table bgcolor="#ffffff" border="0">
+				<tbody><tr>
+					<td align="left" height="32" nowrap="nowrap" valign="top">
+						<a href="http://www.google.com/"><img src="apple_files/Logo_25wht.gif" alt="Google" border="0"></a><br>
+						<input name="domains" value="mactech.com" type="hidden">
+						<input name="q" size="16" maxlength="255" value="" type="text">
+					</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap">
+						<table>
+							<tbody><tr>
+								<td>
+									<input name="sitesearch" value="" type="radio">
+										<font color="#000000" size="-2">Entire Web</font><br>
+									<input name="sitesearch" value="mactech.com" checked="checked" type="radio">
+										<font color="#000000" size="-2">mactech.com</font><br>
+									<input name="sitesearch" value="community" type="radio">
+										<font color="#000000" size="-2">Mac Community</font>
+								</td>
+							</tr>
+						</tbody></table>
+						
+						<input name="sa" value="Search" type="submit">
+						<input name="client" value="pub-3362040077720013" type="hidden">
+						<input name="forid" value="1" type="hidden">
+						<input name="ie" value="ISO-8859-1" type="hidden">
+						<input name="oe" value="ISO-8859-1" type="hidden">
+						<input name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;" type="hidden">
+						<input name="hl" value="en" type="hidden">
+						<a class="navlink" href="http://www.mactech.com/advancedsearch.html">More...</a>
+					</td>
+				</tr>
+			</tbody></table>
+		</form>
+		<!-- SiteSearch Google -->
+	
+		</td>
+	</tr>
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td colspan="4" align="center">
+			<font size="1"><strong>MacTech Central</strong></font>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/mactechcentral/index.html">by Category</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/mactechcentral/companies.html">by Company</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/mactechcentral/products.html">by Product</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td colspan="4" align="center">
+			<font size="1"><strong>MacTech News</strong></font>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/mactechnews/index.html">MacTech News</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/news/?page_id=1007258">Previous News</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/news/rss.html">MacTech RSS</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td colspan="4" align="center">
+			<font size="1"><strong>Article Archives</strong></font>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/articles/">Show Indices</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/articles/mt_indices/Vol_1_Issues.html">by Volume</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/articles/mt_indices/Authors.html">by Author</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/editorial/filearchives.html">Source Code FTP</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td colspan="4" align="center">
+			<font size="1"><strong>Inside MacTech</strong></font>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/editorial/writersguide.html">Writer's Kit</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/editorial/abouteditors.html">Editorial Staff</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+<!--
+	[[TR VALIGN=TOP]]
+		[[TD]]&nbsp;[[/TD]]
+		[[TD ALIGN=RIGHT]]
+			[[IMG SRC="http://www.mactech.com/mt_images/triangle_half.gif" ALT="" WIDTH="5" HEIGHT="9"]]
+		[[/TD]]
+		[[TD]]
+			[[A class="navlink" HREF="http://www.mactech.com/editorial/calendar.html"]]Issue Contents[[/A]]
+		[[/TD]]
+		[[TD]]&nbsp;[[/TD]]
+	[[/TR]]
+-->
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/editorial/calendar.html">Editorial Calendar</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://store.mactech.com/list.html?CREF=293">Back Issues</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/business/adsales.html">Advertising</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+
+
+	<tr valign="top">
+		<td colspan="4" align="center">
+			<font size="1"><strong>Contact Us</strong></font>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/business/custservice.html">Customer Service</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://store.mactech.com/">MacTech Store</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="http://www.mactech.com/misc/legal.html">Legal/Disclaimers</a>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr valign="top">
+		<td>&nbsp;</td>
+		<td align="right">
+			<img src="apple_files/triangle_half.gif" alt="" height="9" width="5">
+		</td>
+		<td>
+			<a class="navlink" href="mailto:website@mactech.com?subject=MacTech%20Web%20Site%20Feedback">Webmaster Feedback</a>
+
+
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr class="NavBar" valign="middle">
+		<td colspan="4" align="center">
+			&nbsp;<br><br>
+		</td>
+	</tr>
+	
+	<tr class="NavBar" valign="top">
+		<td class="NavBar">&nbsp;</td>
+		<td class="NavBar" colspan="2" align="center">
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-3362040077720013";
+			google_ad_width = 120;
+			google_ad_height = 90;
+			google_ad_format = "120x90_0ads_al_s";
+			google_ad_channel ="";
+			google_color_border = "CCCCCC";
+			google_color_bg = "FFFFFF";
+			google_color_link = "000000";
+			google_color_url = "666666";
+			google_color_text = "333333";
+			//--></script>
+			<script type="text/javascript" src="apple_files/show_ads.js">
+			</script><script> window.google_render_ad(); </script><iframe name="google_ads_frame" src="apple_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="120"></iframe>
+		</td>
+		<td class="NavBar">&nbsp;</td>
+	</tr>
+</tbody></table>
+
+<!-- END MT_NAVBAR INCLUDE -->	
+	<!-- End NavBar -->
+	
+	
+	</td>
+
+	
+	
+	
+	
+	<!--BEGIN DROP SHADOW-->
+	
+	<td valign="top">
+	<img src="apple_files/left_side.jpg" alt="">
+	</td>
+
+	<!--END DROP SHADOW-->
+
+
+
+	<td bgcolor="#ffffff" valign="top" width="100%">
+	
+	
+	<table align="center" width="95%">
+	<tbody><tr>
+	<td>
+
+
+
+<!-- END MT_HEADER INCLUDE --><img src="apple_files/dev_essentials.gif">
+<h3>Developer Essentials: ISSUE 3</h3>
+
+<p><i>Introducing the new</i> Developer Essentials <i>disc. In addition to
+</i> d e v e l o p <i>and related code, on this issue of the disc
+you'll find tools and information we think every developer should have.
+These pages highlight what's on the disc, but once you start browsing,
+you'll also find a few surprises.</i></p>
+
+<p><i>To use the disc, you need a CD-ROM drive and the appropriate
+cables and connectors. Refer to your CD-ROM drive's owner's manual for
+detailed information about connecting the drive to your particular
+machine.</i></p>
+
+<p><i>For a Macintosh, you need at least 1 MB of memory, System 4.1 or
+later, and Finder 5.4 or later. In addition, you need to copy the Apple
+CD-ROM INIT that comes with the CD drive startup disks into your System
+Folder. For an Apple II, your SCSI card must have Rev C or later ROM.
+With ProDOS, no special setup is required. If you use GS/OS, you must
+use the Installer on System Disk 4.0 or later to install the CD-ROM
+driver onto your startup volume.</i></p>
+
+<p><b>d e v e l o p </b>You've read the articles, you've bought the arguments, and now it's time to write your own code.
+The idea is that you don't waste your time typing the example programs--just mount this handy
+CD-ROM, then copy and paste. We've includedd e v e l o p as well as the code from each of the
+articles to help you avoid typos. So, browse around, take what you need, and save the rest for a rainy
+day. Each new issue of <i>Developer Essentials</i>  will archive all of the back issues of the journal and the
+code. So look forward to one-stop searching coming soon to a CD-ROM near you. 
+If you don't yet have a CD-ROM drive, you should be able to find the contents of <i> Developer
+Essentials</i>  on AppleLink, the Apple FTP site on the Internet, and other on-line services in the near
+future.
+
+</p><p><b>International System Software</b> <i>Developer Essentials</i>  includes all the latest international versions of Macintosh system software as well
+as the latest U.S. versions of GS/OS and ProDOS, all in DiskCopy image format. (You must have a
+Macintosh to run DiskCopy and create floppy disks from these images.)
+
+</p><p><b>International HyperCard</b> Need the latest version of HyperCard? Look no further. <i> Developer Essentials</i>  includes the latest
+international versions of this "software erector set" in DiskCopy image format.
+
+</p><p><b>DTS Technical Notes and Sample Code</b> All Apple II and Macintosh Technical Notes and Sample Code programs are included for your
+reference. Be sure to check here for the latest and greatest development information and Developer
+Technical Support programming tips and techniques.
+
+</p><p><b>Macintosh Technical Notes Stack</b> This HyperCard stack incorporates all of the latest Macintosh Technical Notes into a single on-line
+source, which is cross-referenced with <i>SpInside Macintosh</i> , Q &amp; A Stack, and the Human Interface
+Notes Stack.
+
+</p><p><b>Macintosh Q &amp; A Stack</b> Got a tough development question? Try the Q &amp; A Stack, which is a collection 
+of the most frequently asked questions DTS receives from developers. Organized by subject, this
+stack answers the questions within and includes 
+cross-references to <i>SpInside Macintosh</i>  and the Macintosh Technical Notes Stack.
+
+</p><p><b>SpInside Macintosh</b> Of course the most essential of all 
+documentation for Macintosh developers is <i> Inside Macintosh</i> , so <i> Developer Essentials</i>  offers you <i>SpInside
+Macintosh</i> , an on-line version of volumes I-V. <i> SpInside Macintosh</i>  combines all five volumes into a
+single, searchable electronic form that is 
+cross-referenced with the Macintosh Technical Notes Stack, Q &amp; A Stack, and Human Interface
+Notes Stack.
+
+</p><p>Now you have some of the headliners in <i> Developer Essentials</i> , but you should take some time to
+browse the disc and see what else you might discover. We'll be adding more as <i> Developer Essentials</i>
+evolves, and we hope you agree that these are tools that no developer should be without.
+
+</p><p><br>
+The allegedly 27-year-old Jack Hodgson, product manager of <i> Developer Essentials</i> , produced and directed corporate
+videos in Boston, ran a small, computer book publishing company, did some free-lance programming, 
+and founded the Boston Computer Society's Mac Users Group. His next big life goals are to buy his own plane and to
+learn to play his piano well enough to cut loose in Dave Szetela's Excellent Annual WWDC Moofamania Jam Sessions
+(caution: unofficial title).
+
+</p><p><b>SCOTT CONVERSE</b> is the group's Electronic Media Mogul and leader. A true on-line addict, he makes a living cruising the
+electronic highways and getting information to as many people as possible by using computers. Scott also loves sci-fi
+(particularly cyberpunk), reads books on design, and plays music on any of six full-blown, wall-shaking stereo systems in
+his house. When not cruising the electronic highways, he's racing radio-controlled cars. Would you ride the fiber optic
+byways with this guy? *
+
+</p><p><b>COREY VIAN</b> takes the Zen approach to most things. He has
+an interdisciplinary B.A. in art and math from Maharishi
+International University. (Really! It's in Iowa.) An eight-month Apple
+veteran (two years and eight months if you count his prior
+consulting), he's now doing information interface design. (See his
+sidebar in the first article in this issue.) An avid meditation
+practitioner, he also flies airplanes, builds cabinetry, windsurfs,
+snow skis, practices aikido, and composes R&amp;R music--and
+he claims he isn't busy. *
+</p><p><b>CLEO HUGGINS</b> studied graphic design at the Rhode Island School of Design, taught design and semiotics at the Portland
+School of Art in Maine, and created the music typeface "Sonata" when she worked at Adobe. She received an M.S. in
+digital typography from Stanford University, and plays electric violin. Cleo always knew the computer would be a good
+place to combine her interests; she has joined Apple to help refine the use of typography and design (and maybe even
+music) in our CDs. *
+
+</p><p><b>MARY SKINNER</b> collects the input, supervises testing, processes the feedback and is the group's systems administrator
+(thank goodness Mary is a HyperCard fanatic).  She's a native Iowan born in New York City. Her B.A. in physics and
+B.A. in Russian from the University of Iowa landed her as an Air Force Lieutenant at Johnson Space Center. In her spare
+time, she plays with the computer, reads sci-fi (she's a Poul Anderson fan), and listens to the nonsoft side of rock and roll.
+Mozhete skazat "Def Leppard"? *
+
+<!-- BEGIN MT_FOOTER INCLUDE -->
+
+</p></td>
+</tr>
+
+<tr>
+<td>
+<br>
+<hr width="80%">
+<center>
+<a href="http://store.mactech.com/dvd2yrsubcombo/">
+Click here to find out more about our best subscription bundle deal ever!<br>
+2 years of the magazine, and the all new MacTech DVD ... at 70% off!
+</a>
+</center>
+
+<hr width="80%">
+<br>
+<center>
+
+<div class="traffic"><strong>Spread the word.</strong>  Add to: 
+<a href="javascript:void%20window.open('http://slashdot.org/bookmark.pl?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title),'popup','',0)">
+<img src="apple_files/slashdot.gif" class="pl">Slashdot</a>  
+<a href="javascript:void%20window.open('http://digg.com/submit?phase=2&url='+encodeURIComponent(window.location.href)+'&ei=UTF-8','popup','',0)">
+<img src="apple_files/digg.gif" class="pl">Digg</a> 
+<a href="javascript:void%20window.open('http://del.icio.us/post?url='+encodeURIComponent(window.location.href)+'&ei=UTF-8','popup','',0)">
+<img src="apple_files/del.gif" class="pl">del.icio.us</a>  
+<a href="javascript:void%20window.open('http://reddit.com/submit?url='+encodeURIComponent(window.location.href)+'&ei=UTF-8','popup','',0)">
+<img src="apple_files/reddit.gif" class="pl">reddit</a>  
+<a href="javascript:void%20window.open('http://www.newsvine.com/_tools/seed&save?u='+encodeURIComponent(window.location.href)+'&ei=UTF-8','popup','',0)">
+<img src="apple_files/newsvine.gif" class="pl">newsvine</a>  
+<a href="javascript:void%20window.open('http://myweb2.search.yahoo.com/myresults/bookmarklet?t='+encodeURIComponent(window.location.href)+'&ei=UTF-8','popup','',0)">
+<img src="apple_files/yahoo-myweb.gif" class="pl">Y! MyWeb</a></div>
+<br>
+</center>
+
+
+</td>
+</tr>
+</tbody></table>
+
+
+</td>
+
+
+<!--BEGIN DROP SHADOW-->
+
+<td valign="top">
+<img src="apple_files/left_side.jpg" alt="">
+</td>
+
+<!--END DROP SHADOW-->
+
+
+
+
+<!-- BEGIN RIGHT CENTER MAGAZINE COLUMN -->
+
+<td align="center" bgcolor="#ffffff" width="175">
+
+<!-- BEGIN SKYSCRAPER -->
+
+<table bgcolor="#ffffff" border="0" cellpadding="3" cellspacing="0" width="130">
+	<tbody><tr align="left" valign="middle">
+		<td>
+			<center><a class="RightBarTextAd" href="http://www.mactech.com/misc/about_mt.html">
+			<span class="trialsubdesc">Click on the cover to<br>see this month's issue!</span><br>
+			<img src="apple_files/mt-cover-current.jpg" width="120">
+			</a></center>
+		</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+		<img src="apple_files/dashes120x5.gif" alt="" vspace="5" width="120">
+		</td>
+	</tr>
+
+	<tr align="left" valign="middle">
+		<td>
+			<center><a class="RightBarTextAd" href="https://store.mactech.com/mactech/riskfree/offer.html?FROM=MTRF">
+			<u><span class="trialsub">TRIAL SUBSCRIPTION</span></u><br>
+			<span class="trialsubdesc">Get a RISK-FREE subscription to the only technical Mac magazine!</span>
+			</a></center>
+		</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+			&nbsp;
+		</td>
+	</tr>
+	<tr width="125" align="center">
+		<td>
+		
+						<script type="text/javascript"><!--
+			google_ad_client = "pub-3362040077720013";
+			//120x600, created 12/18/07
+			google_ad_slot = "6813384184";
+			google_ad_width = 120;
+			google_ad_height = 600;
+			//--></script>
+			<script type="text/javascript" src="apple_files/show_ads.js">
+			</script><script> window.google_render_ad(); </script><iframe name="google_ads_frame" src="apple_files/ads_002.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+		</td>
+	</tr>
+
+	<tr valign="middle">
+		<td colspan="4" align="center">
+			&nbsp;
+		</td>
+	</tr>
+	<tr width="125" align="center">
+		<td>
+		
+						<script type="text/javascript"><!--
+			google_ad_client = "pub-3362040077720013";
+			//120x600, created 12/18/07
+			google_ad_slot = "6813384184";
+			google_ad_width = 120;
+			google_ad_height = 600;
+			//--></script>
+			<script type="text/javascript" src="apple_files/show_ads.js">
+			</script><script> window.google_render_ad(); </script><iframe name="google_ads_frame" src="apple_files/ads_003.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="600" scrolling="no" width="120"></iframe>
+		</td>
+	</tr>
+</tbody></table>
+<!-- END SKYSCRAPER -->
+
+</td>
+<!-- END RIGHT CENTER MAGAZINE COLUMN -->
+
+
+<!--BEGIN DROP SHADOW-->
+<td valign="top">
+<img src="apple_files/left_side.jpg" alt="">
+</td>
+<!--END DROP SHADOW-->
+
+
+
+</tr>
+
+<!--BEGIN ROUND BOTTOM-->
+<tr>
+	<td width="175">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="left">
+					<img src="apple_files/Corner-LL.gif" height="5" width="5"></td>
+				<td bgcolor="#ffffff" height="5" width="100%"></td>
+				<td align="right">
+					<img src="apple_files/Corner-LR.gif" height="5" width="5"></td>
+				
+			</tr>
+		</tbody></table>
+	</td>
+	
+	<td width="10">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td align="left" height="5" width="10">
+				</td>
+			</tr>
+		</tbody></table>
+	</td>
+	
+	<td>
+		<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="left">
+					<img src="apple_files/Corner-LL.gif" height="5" width="5"></td>
+				<td align="right" bgcolor="#ffffff" height="5" width="100%"></td>
+				<td align="right">
+					<img src="apple_files/Corner-LR.gif" height="5" width="5"></td>
+			</tr>
+		</tbody></table>
+	
+	
+	
+	</td>
+	<td width="10">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<td align="left" height="5" width="10">
+				</td>
+			</tr>
+		</tbody></table>
+	
+	
+	
+	</td>
+	<td width="175">
+	
+		<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="left">
+					<img src="apple_files/Corner-LL.gif" height="5" width="5"></td>
+				<td bgcolor="#ffffff" height="5" width="100%"></td>
+				<td align="right">
+					<img src="apple_files/Corner-LR.gif" height="5" width="5"></td>
+				
+			</tr>
+		</tbody></table>
+	
+	
+	
+	</td>
+</tr>
+<!--END ROUND BOTTOM-->
+</tbody></table>
+
+<center>
+
+<p></p>
+
+<table align="center" bgcolor="#ffffff" border="0">
+<tbody><tr>
+	<td>
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-3362040077720013";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		google_ad_format = "728x90_as";
+		google_ad_type = "text_image";
+		google_ad_channel ="";
+		google_color_border = "CCCCCC";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "666666";
+		google_color_text = "333333";
+		//--></script>
+		<script type="text/javascript" src="apple_files/show_ads.js">
+		</script><script> window.google_render_ad(); </script><iframe name="google_ads_frame" src="apple_files/ads_004.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="728"></iframe>
+
+	</td>
+</tr>
+</tbody></table>
+
+
+
+<br>
+
+<font color="#ffffff">
+	<b>MacTech Magazine.  www.mactech.com</b>
+	<br>
+	Toll Free 877-MACTECH, Outside US/Canada: 805-494-9797<br><br>
+	
+	<font size="-1">
+	<a href="http://www.mactechdomains.com/">Register Low Cost (ok dirt cheap!) Domain Names in the MacTech Domain Store.  As low as $1.99!</a><br>
+	<a href="http://www.mactechsupplies.com/">Save on brand compatible and name brank ink jet and laser supplies.</a><br>
+	<a href="http://www.lowcostdialing.com/">Save on long distance</a> * <a href="http://www.computerlunatics.com/">Upgrade your Computer </a><br>
+	<a href="http://www.video-depot.com/">Movies with No Late Fees!</a><br><br>
+	</font>
+	
+	<font size="-2">
+	<a href="http://www.withoutopinion.com/">See local info about</a> 
+	<a href="http://www.westlakerevelations.com/">Westlake Village</a><br>
+
+	<a href="http://www.showerjot.com/">SJ</a> * 
+	<a href="http://www.bathroomjot.com/">BRJ</a> * 
+	<a href="http://www.bathjot.com/">BJ</a> * 
+	<a href="http://www.officejot.com/">OJ</a> * 
+	<a href="http://www.notesintheshower.com/">NITS</a><br>
+	
+	<a href="http://www.ticktin.com/">Staff Site</a> 
+	<a href="http://www.sniderman.com/">Links</a><br>
+	</font>
+</font>
+<p></p>
+
+<br>
+<p>
+<font color="#ffffff" size="1">
+
+<br>
+
+</font></p><p>
+<font color="#ffffff" size="1">All contents are Copyright 1984-2007 by <a href="http://www.xplain.com/">Xplain Corporation</a>. All 
+rights reserved.
+</font></p>
+<p>
+</p>
+<font color="#ffffff" size="1">MacTech is a registered trademark of <a href="http://www.xplain.com/">Xplain Corporation</a>. 
+<a href="http://www.xplain.com/">Xplain</a>, 
+<a href="http://www.video-depot.com/">Video Depot</a>, 
+<a href="http://www.movie-depot.com/">Movie Depot</a>, 
+<a href="http://www.palmosdepot.com/">Palm OS Depot</a>, 
+<a href="http://www.explainit.com/">Explain It</a>, 
+<a href="http://www.mactech.com/news/?p=1000036">MacDev, MacDev-1</a>, 
+<a href="http://www.thinkreference.com/">THINK Reference</a>, 
+<a href="http://www.netprofessional.com/">NetProfessional</a>, 
+<a href="http://www.netprofessional.com/">NetProLive</a>, 
+<a href="http://www.mactech.com/articles/mactech/%20Vol.13/13.06/BuildingBeans">JavaTech</a>, 
+<a href="http://www.mactech.com/articles/mactech/%20Vol.16/16.01/IntrotoWebObjects">WebTech</a>, 
+BeTech,
+LinuxTech, 
+<a href="http://www.appleexpo.com/">Apple Expo</a>, 
+<a href="http://www.mactechcentral.com/">MacTech Central</a>
+and the <a href="http://www.mactech.com/">MacTutorMan</a> are trademarks or service
+marks of <a href="http://www.xplain.com/">Xplain Corporation</a>. 
+Sprocket is a registered trademark of
+eSprocket Corporation. Other trademarks and copyrights appearing in this
+printing or software remain the property of their respective holders.
+</font><p></p>
+
+
+<br>
+<p></p>
+</center>
+
+<!-- END MT_FOOTER INCLUDE -->
+
+</body></html>

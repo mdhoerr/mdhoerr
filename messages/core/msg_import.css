@@ -1,0 +1,142 @@
+/* Imported contact form style sheet */
+
+/* ids assigned to body tags (identify what the page is for) */
+
+/* home page */
+
+#message_home
+{
+
+}
+
+/* about page */
+
+#message_about
+{
+
+}
+
+/* code page */
+#message_code
+{
+
+}
+
+/* message page: page named for what you can do with the data  */
+/* each page instantiates a messages object and uses one of */
+/* the objects SQL methods to manipulate the messages table */
+/* there are three job page id's: read_only, blank_form, and result_form */
+/* read_only: select SQL method */
+/* blank form: empty form for entering new job; insert SQL method */
+/* result form: prefilled with message just sent for showing result; select SQL method */
+
+#read_only, #blank_form, #result_form
+        {
+                display: block;
+                position: relative;
+                float: left;
+        }
+
+/* message page styling */
+
+#read_only ul, #blank_form ul, #result_form ul
+        {
+                list-style-type: none;
+                border:none;
+        }
+/* everything on this page refers to one messageid */
+/* every item has a fieldname class, a fieldvalue class */
+/* and a form input. This allows me to show or style */
+/* each item differently, depending on the page id */
+.fieldname
+        {
+                display: block;
+                position: relative;
+                float: left;
+                clear: left;
+                width: 8em;
+                margin-bottom: 1em;
+        }
+
+.fieldvalue
+				{
+								display: block;
+								position: relative;
+								float: left;
+								clear: right;
+								margin-bottom: 1em;
+				} 
+								     
+        
+#read_only .fieldvalue
+        {
+                
+        }
+        
+#blank_form input, #blank_form textarea
+        {
+                display: block;
+                position: relative;
+                float: left;
+                clear: right;
+        }
+        
+#blank_form input
+        {   
+	        			color: #65944a;
+	        			background-color: #ffffff;  
+        }
+
+#blank_form textarea
+        {
+	        			background-color: #ffffff;
+	        			margin-bottom: 2em;
+        }
+
+/* the read_only page: do not display form items */
+#read_only input, #read_only textarea, #result_form .fieldinput, #result_form textarea
+        {
+                display:none;
+        }
+
+/* there are different submit buttons based on the page id */
+.update_button
+        {
+                display: none;
+        }
+        
+/* the insert button adds the message to the database and assigns a messageid. Its value is "send". */
+#blank_form .insert_button input, #result_form .insert_button input
+        {
+                display: block;
+                position: relative;
+                float: left;
+                margin-left: 2em;
+                padding: 0em 1em 0em 1em;
+                clear: left;
+                color: #65944a;
+                font-weight: bold;
+                border: dotted thin #65944a;
+        }
+        
+/* the select button selects a read-only view of a non-zero messageid. Its value is "clear". */
+#blank_form .select_button input, #result_form .select_button input
+				{
+               display: block;
+               position: relative;
+               float: right;
+               margin-right: 2em;
+               padding: 0em 1em 0em 1em;
+               clear: right;
+               color: #65944a;
+               font-weight: bold;
+               border: dotted thin #65944a;
+				}
+
+/* the blank_form and read_only form pages display any existing */
+/* field values in the input items - hide the fieldvalue class */
+/* so we don't display the values twice */
+#blank_form .fieldvalue
+        {
+                display:none;
+        }

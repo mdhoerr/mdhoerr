@@ -1,0 +1,39 @@
+<project version="Crimson Editor 3.60">
+	<category name="message" expanded="yes">
+		<category name="core" expanded="yes">
+			<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\contact\msg_config.php" />
+			<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\contact\core\msg_header.php" />
+			<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_import.css" />
+			<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_import_ie.css" />
+			<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\contact\msg_utilities.php" />
+		</category>
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\contact\index.php" />
+	</category>
+	<category name="core-base" expanded="no">
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\configure.php" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\core.css" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\date_utilities.php" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\db_info.php" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\db_utilities.php" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\html_utilities.php" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\index.php" />
+		<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\core-base\info.php" />
+	</category>
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\contact.php" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\index.php" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\pdl.php" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\yapcna2012.php" />
+</project>
+
+<workspace version="Crimson Editor 3.60">
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\contact.php" linenum="122" placement="0:1:-1:-1:-8:-30:175:175:1120:589" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_config.php" linenum="1" placement="0:1:-1:-1:-8:-30:200:200:1145:614" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_header.php" linenum="29" placement="0:1:-1:-1:-8:-30:0:0:945:414" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_utilities.php" linenum="1" placement="0:1:-1:-1:-8:-30:25:25:970:439" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_import.css" linenum="119" placement="2:3:-1:-1:-8:-30:50:50:995:464" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\messages\core\msg_import_ie.css" linenum="1" placement="0:1:-1:-1:-8:-30:75:75:1020:489" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\index.php" linenum="38" placement="0:1:-1:-1:-8:-30:100:100:1110:514" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\pdl.php" linenum="38" placement="0:1:-1:-1:-8:-30:125:125:1135:539" />
+	<localfile path="C:\Users\mdhoerr\Documents\MDHOERR.COM\yapcna2012.php" linenum="38" placement="0:1:-1:-1:-8:-30:150:150:1160:564" />
+</workspace>
+

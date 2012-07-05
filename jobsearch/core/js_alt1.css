@@ -1,0 +1,23 @@
+/* Alternate 1 imported jobsearch style sheet */
+
+body 
+{
+  color: #008080 !important; /* teal */
+  background-color: #fff8dc !important; /* cornsilk */
+}
+
+h1, h2
+{
+  color: #66cdaa !important; /* medium aquamarine */
+}
+
+a:link, a:visited
+{
+  color: #f08080 !important; /* light coral */
+}
+
+a:active, a:hover
+{
+  color: #dc143c !important; /* crimson */
+  background-color: #fff8dc !important; /* cornsilk */
+}

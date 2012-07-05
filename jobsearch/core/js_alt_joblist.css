@@ -1,0 +1,42 @@
+/* styles for joblist page */
+.colhead
+{
+    background-color: #eeeeee;
+}
+.job_row
+{
+   display: block;
+   position: relative;
+}
+.orgid
+{
+  display: block;
+  position: absolute;
+  margin-left:0.5em;
+}
+
+.jobtitle
+{
+   display: block;
+   position: absolute;
+   margin-left: 9em;
+   width: 10em;
+}
+.start
+{
+   display: block;
+   position: relative;
+   margin-left: 20em;
+}
+.end
+{
+   display: block;
+   position: relative;
+}
+.responsibilities
+{
+   display: block;
+   position: relative;
+   margin-top: 1em;
+   margin-left: 5em;
+}
